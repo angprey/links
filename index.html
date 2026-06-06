@@ -1,298 +1,230 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ang Prey - Links</title>
-    <meta name="description" content="Group links for Ang Prey">
-    <meta name="theme-color" content="#6366f1">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    animation: {
-                        fadeIn: 'fadeIn 0.5s ease-in-out',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(10px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>@YourHandle — Links</title>
 
-        html, body {
-            height: 100%;
-            width: 100%;
-        }
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-        .container {
-            width: 100%;
-            max-width: 500px;
-            padding: 20px;
-            animation: fadeIn 0.8s ease-in-out;
-        }
+  <style>
+    :root{
+      --bg:#070710;
+      --card:#0b1220;
+      --muted:#9aa3b2;
+      --neon1: #7C3AED; /* purple */
+      --neon2: #06b6d4; /* teal */
+    }
 
-        .profile-section {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    html,body{
+      height:100%;
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(124,58,237,0.06), transparent),
+                  radial-gradient(900px 400px at 90% 90%, rgba(6,182,212,0.04), transparent),
+                  var(--bg);
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      color: #e6eef8;
+    }
 
-        .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin: 0 auto 24px;
-            object-fit: cover;
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
+    /* Neon card effect */
+    .neon-card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+      border: 1px solid rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+      transition: transform .22s ease, box-shadow .22s ease;
+    }
+    .neon-btn{
+      box-shadow: 0 6px 20px rgba(0,0,0,0.6), 0 0 18px rgba(124,58,237,0.06);
+      border: 1px solid rgba(124,58,237,0.10);
+    }
+    .neon-btn:hover{
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.6), 0 0 30px rgba(124,58,237,0.18);
+      border-color: rgba(124,58,237,0.22);
+    }
+    .neon-btn:focus{
+      outline: none;
+      box-shadow: 0 0 0 4px rgba(124,58,237,0.12), 0 12px 30px rgba(0,0,0,0.5);
+    }
 
-        .profile-image:hover {
-            transform: scale(1.05);
-        }
+    /* Profile circle with neon ring */
+    .profile {
+      width: 96px;
+      height: 96px;
+      border-radius: 9999px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(124,58,237,0.16), rgba(6,182,212,0.12));
+      border: 1px solid rgba(255,255,255,0.04);
+      position: relative;
+      overflow: hidden;
+    }
+    .profile::after{
+      content:'';
+      position:absolute;
+      inset: -4px;
+      border-radius:inherit;
+      box-shadow: 0 6px 28px rgba(124,58,237,0.12), 0 0 34px rgba(6,182,212,0.06);
+      pointer-events:none;
+    }
+    .avatar-inner{
+      width:86%;
+      height:86%;
+      border-radius:50%;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(0,0,0,0.08));
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      color: #eaf6ff;
+      font-size:22px;
+      letter-spacing:0.6px;
+      backdrop-filter: blur(2px);
+    }
 
-        .profile-name {
-            font-size: 28px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
+    /* Portfolio panel */
+    .panel-enter{ transform: translateY(10px); opacity:0; }
+    .panel-enter-active{ transform: translateY(0); opacity:1; transition: all .22s cubic-bezier(.2,.9,.2,1); }
+    .panel-exit{ transform: translateY(0); opacity:1; }
+    .panel-exit-active{ transform: translateY(8px); opacity:0; transition: all .18s ease-in; }
 
-        @media (max-width: 640px) {
-            .profile-name {
-                font-size: 24px;
-            }
-        }
-
-        .profile-subtitle {
-            font-size: 14px;
-            color: rgba(255, 255, 255, 0.8);
-            font-weight: 500;
-        }
-
-        .links-section {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .link-button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px 24px;
-            background: white;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            color: #333;
-            text-decoration: none;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            min-height: 56px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .link-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: rgba(99, 102, 241, 0.1);
-            transition: left 0.3s ease;
-            z-index: 1;
-        }
-
-        .link-button:hover::before {
-            left: 100%;
-        }
-
-        .link-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .link-button:active {
-            transform: translateY(-1px);
-        }
-
-        .link-content {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            gap: 12px;
-        }
-
-        .link-icon {
-            font-size: 20px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            flex-shrink: 0;
-        }
-
-        @media (max-width: 640px) {
-            .container {
-                padding: 16px;
-            }
-
-            .profile-section {
-                margin-bottom: 32px;
-            }
-
-            .profile-image {
-                width: 100px;
-                height: 100px;
-                margin-bottom: 16px;
-            }
-
-            .profile-name {
-                font-size: 22px;
-                margin-bottom: 6px;
-            }
-
-            .link-button {
-                padding: 14px 20px;
-                font-size: 15px;
-                min-height: 52px;
-                border-radius: 10px;
-            }
-
-            .link-icon {
-                font-size: 18px;
-                width: 24px;
-                height: 24px;
-            }
-
-            .links-section {
-                gap: 10px;
-            }
-        }
-
-        @supports (padding: max(0px)) {
-            body {
-                padding: max(env(safe-area-inset-top, 0), 16px) max(env(safe-area-inset-right, 0), 16px) max(env(safe-area-inset-bottom, 0), 16px) max(env(safe-area-inset-left, 0), 16px);
-            }
-        }
-    </style>
+    /* small tweaks for small screens */
+    @media (max-width:420px){
+      .profile{ width:86px; height:86px; }
+    }
+  </style>
 </head>
-<body>
-    <div class="container">
-        <!-- Profile Section -->
-        <div class="profile-section">
-            <img src="profile.jpg" alt="Profile" class="profile-image">
-            <h1 class="profile-name">Ang Prey</h1>
-            <p class="profile-subtitle">Group links</p>
+<body class="min-h-screen flex items-center justify-center p-6">
+
+  <main class="w-full max-w-md">
+    <section class="neon-card p-6 rounded-3xl text-center shadow-lg">
+      <!-- Profile -->
+      <div class="flex flex-col items-center gap-3">
+        <div class="profile">
+          <!-- Replace initials with <img src="your-image.jpg" alt="Your name" class="w-full h-full object-cover"> if desired -->
+          <div class="avatar-inner" aria-hidden="true">@YH</div>
         </div>
 
-        <!-- Links Section -->
-        <div class="links-section">
-            <!-- Telegram Channel -->
-            <a href="https://t.me/AngPreyBPS" target="_blank" rel="noopener noreferrer" class="link-button">
-                <div class="link-content">
-                    <span class="link-icon">✈️</span>
-                    <span>Telegram Channel</span>
-                </div>
-            </a>
+        <h1 class="mt-2 text-2xl font-semibold tracking-tight">@YourHandle</h1>
+        <p class="text-sm text-[--muted] mt-1">Developer & Creator</p>
+      </div>
 
-            <!-- S3orory63r (Facebook Profile/Page) -->
-            <a href="https://www.facebook.com/s3orory63r" target="_blank" rel="noopener noreferrer" class="link-button">
-                <div class="link-content">
-                    <span class="link-icon">f</span>
-                    <span>S3orory63r</span>
-                </div>
-            </a>
+      <!-- Buttons -->
+      <nav class="mt-6 flex flex-col gap-4">
+        <a href="https://twitter.com" target="_blank" rel="noopener" class="neon-btn w-full inline-block py-4 px-5 rounded-2xl text-center text-lg font-semibold text-white transition-colors">
+          Follow on Twitter
+        </a>
 
-            <!-- Wat Ang Prey School (Facebook Page) -->
-            <a href="https://www.facebook.com/profile.php?id=100063471703818" target="_blank" rel="noopener noreferrer" class="link-button">
-                <div class="link-content">
-                    <span class="link-icon">🏫</span>
-                    <span>Wat Ang Prey School</span>
-                </div>
-            </a>
+        <a href="mailto:you@example.com" class="neon-btn w-full inline-block py-4 px-5 rounded-2xl text-center text-lg font-semibold text-white transition-colors">
+          Contact Me
+        </a>
 
-            <!-- Venerable Sem Sophea (Facebook Profile) -->
-            <a href="https://www.facebook.com/venerable.semsophea" target="_blank" rel="noopener noreferrer" class="link-button">
-                <div class="link-content">
-                    <span class="link-icon">👤</span>
-                    <span>Venerable Sem Sophea</span>
-                </div>
-            </a>
+        <a href="https://linktr.ee" target="_blank" rel="noopener" class="neon-btn w-full inline-block py-4 px-5 rounded-2xl text-center text-lg font-semibold text-white transition-colors">
+          Latest Project
+        </a>
 
-            <!-- School Administration (Facebook Profile) -->
-            <a href="https://www.facebook.com/profile.php?id=100068200268908" target="_blank" rel="noopener noreferrer" class="link-button">
-                <div class="link-content">
-                    <span class="link-icon">📋</span>
-                    <span>School Administration</span>
-                </div>
-            </a>
+        <!-- My GitHub Portfolio: toggles inline panel -->
+        <button id="portfolioToggle" type="button" aria-expanded="false" class="neon-btn w-full inline-block py-4 px-5 rounded-2xl text-center text-lg font-semibold text-white transition-colors">
+          My GitHub Portfolio
+        </button>
 
-            <!-- School Community (Facebook Profile) -->
-            <a href="https://www.facebook.com/profile.php?id=100068768800577" target="_blank" rel="noopener noreferrer" class="link-button">
-                <div class="link-content">
-                    <span class="link-icon">👥</span>
-                    <span>School Community</span>
-                </div>
-            </a>
+        <a href="https://youtube.com" target="_blank" rel="noopener" class="neon-btn w-full inline-block py-4 px-5 rounded-2xl text-center text-lg font-semibold text-white transition-colors">
+          Watch on YouTube
+        </a>
+      </nav>
 
-            <!-- Sem Sophea YouTube Channel -->
-            <a href="https://youtube.com/@semsophea1293" target="_blank" rel="noopener noreferrer" class="link-button">
-                <div class="link-content">
-                    <span class="link-icon">▶️</span>
-                    <span>Sem Sophea YouTube Channel</span>
-                </div>
-            </a>
-
-            <!-- Call Primary Phone -->
-            <a href="tel:0925050000" class="link-button">
-                <div class="link-content">
-                    <span class="link-icon">📞</span>
-                    <span>Call: 092 50 50000</span>
-                </div>
-            </a>
-
-            <!-- Call Secondary Phone -->
-            <a href="tel:0964505000" class="link-button">
-                <div class="link-content">
-                    <span class="link-icon">☎️</span>
-                    <span>Call: 096 450 5000</span>
-                </div>
-            </a>
+      <!-- Portfolio Link List (hidden by default) -->
+      <div id="portfolioPanel" class="mt-5 rounded-2xl p-4 bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.03)] hidden" aria-hidden="true">
+        <div class="flex items-center justify-between mb-3">
+          <h3 class="text-sm font-semibold">GitHub Portfolio</h3>
+          <button id="closePanel" aria-label="Close portfolio" class="text-[--muted] hover:text-white">Close</button>
         </div>
-    </div>
+
+        <ul class="flex flex-col gap-3">
+          <!-- Replace these with your actual repository links -->
+          <li>
+            <a href="https://github.com/yourusername/project-1" target="_blank" rel="noopener" class="flex items-center justify-between neon-card p-3 rounded-lg">
+              <div>
+                <div class="text-sm font-medium">Project One</div>
+                <div class="text-xs text-[--muted]">React · API · Design</div>
+              </div>
+              <svg class="w-5 h-5 text-[--neon2]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://github.com/yourusername/project-2" target="_blank" rel="noopener" class="flex items-center justify-between neon-card p-3 rounded-lg">
+              <div>
+                <div class="text-sm font-medium">Project Two</div>
+                <div class="text-xs text-[--muted]">Node · CLI · Tools</div>
+              </div>
+              <svg class="w-5 h-5 text-[--neon1]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://github.com/yourusername" target="_blank" rel="noopener" class="flex items-center justify-between neon-card p-3 rounded-lg">
+              <div>
+                <div class="text-sm font-medium">All Repositories</div>
+                <div class="text-xs text-[--muted]">Explore my GitHub</div>
+              </div>
+              <svg class="w-5 h-5 text-[--neon2]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <p class="mt-6 text-xs text-[--muted]">Built with a dark neon style — replace links and avatar to personalize.</p>
+    </section>
+  </main>
+
+  <script>
+    // Toggle portfolio panel
+    const toggle = document.getElementById('portfolioToggle');
+    const panel = document.getElementById('portfolioPanel');
+    const closeBtn = document.getElementById('closePanel');
+
+    function openPanel(){
+      panel.classList.remove('hidden');
+      panel.classList.add('panel-enter','panel-enter-active');
+      panel.setAttribute('aria-hidden','false');
+      toggle.setAttribute('aria-expanded','true');
+    }
+    function closePanelFunc(){
+      panel.classList.remove('panel-enter','panel-enter-active');
+      panel.classList.add('panel-exit','panel-exit-active');
+      panel.setAttribute('aria-hidden','true');
+      toggle.setAttribute('aria-expanded','false');
+      // after animation, hide
+      setTimeout(()=> {
+        panel.classList.remove('panel-exit','panel-exit-active');
+        panel.classList.add('hidden');
+      }, 200);
+    }
+
+    let panelOpen = false;
+    toggle.addEventListener('click', () => {
+      panelOpen = !panelOpen;
+      if(panelOpen) openPanel();
+      else closePanelFunc();
+    });
+    closeBtn.addEventListener('click', () => {
+      panelOpen = false;
+      closePanelFunc();
+    });
+
+    // Close panel when pressing Escape
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && panelOpen){
+        panelOpen = false;
+        closePanelFunc();
+      }
+    });
+  </script>
 </body>
 </html>
