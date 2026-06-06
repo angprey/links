@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>@YourHandle — Links</title>
+  <title>Wat Ang Prey — Links</title>
 
   <!-- Inter font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -85,7 +85,14 @@
       font-size:22px;
       letter-spacing:0.6px;
       backdrop-filter: blur(2px);
+      overflow:hidden;
     }
+    .avatar-inner img{ width:100%; height:100%; object-fit:cover; display:block }
+
+    /* Button avatar inside link */
+    .btn-flex{ display:flex; align-items:center; gap:12px }
+    .btn-avatar{ width:44px; height:44px; border-radius:9999px; overflow:hidden; flex:0 0 44px; background:rgba(255,255,255,0.03); display:grid; place-items:center }
+    .btn-avatar img{ width:100%; height:100%; object-fit:cover; display:block }
 
     /* Portfolio panel */
     .panel-enter{ transform: translateY(10px); opacity:0; }
@@ -96,6 +103,7 @@
     /* small tweaks for small screens */
     @media (max-width:420px){
       .profile{ width:86px; height:86px; }
+      .btn-flex{ gap:10px }
     }
   </style>
 </head>
@@ -106,35 +114,86 @@
       <!-- Profile -->
       <div class="flex flex-col items-center gap-3">
         <div class="profile">
-          <!-- Replace initials with <img src="your-image.jpg" alt="Your name" class="w-full h-full object-cover"> if desired -->
-          <div class="avatar-inner" aria-hidden="true">@YH</div>
+          <!-- Use repo image as avatar if present -->
+          <div class="avatar-inner" aria-hidden="true"><img src="IMG_4399.jpeg" alt="Wat Ang Prey"></div>
         </div>
 
-        <h1 class="mt-2 text-2xl font-semibold tracking-tight">@YourHandle</h1>
-        <p class="text-sm text-[--muted] mt-1">Developer & Creator</p>
+        <h1 class="mt-2 text-2xl font-semibold tracking-tight">Wat Ang Prey</h1>
+        <p class="text-sm text-[--muted] mt-1">School & Community</p>
       </div>
 
       <!-- Buttons -->
       <nav class="mt-6 flex flex-col gap-4">
-        <a href="https://twitter.com" target="_blank" rel="noopener" class="neon-btn w-full inline-block py-4 px-5 rounded-2xl text-center text-lg font-semibold text-white transition-colors">
-          Follow on Twitter
+        <a href="https://t.me/AngPreyBPS" target="_blank" rel="noopener" class="neon-btn w-full inline-block py-3 px-4 rounded-2xl text-left text-lg font-semibold text-white transition-colors btn-flex">
+          <div class="btn-avatar" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 12.8c0 4-3.2 7.2-7.2 7.2-2.4 0-4.6-1.1-6.1-2.9l2-6.4 4.6 3.6c0.4 0.3 0.9 0.1 1-0.4l1.3-5.2c0.1-0.5-0.4-0.9-0.8-0.6l-8.7 6c-0.5 0.3-0.5 0.9-0.1 1.2 2.5 2 5.6 3.2 8.9 3.2 5 0 9-4 9-9 0-0.5-0.4-0.9-0.9-0.9h-2.4c-0.5 0-0.9 0.4-0.9 0.9z" /></svg></div>
+          <div>
+            <div>Telegram Channel</div>
+            <div class="text-xs text-[--muted]">Announcements & updates</div>
+          </div>
         </a>
 
-        <a href="mailto:you@example.com" class="neon-btn w-full inline-block py-4 px-5 rounded-2xl text-center text-lg font-semibold text-white transition-colors">
-          Contact Me
+        <a href="https://www.facebook.com/s3orory63r" target="_blank" rel="noopener" class="neon-btn w-full inline-block py-3 px-4 rounded-2xl text-left text-lg font-semibold text-white transition-colors btn-flex">
+          <div class="btn-avatar" aria-hidden="true"><img src="https://graph.facebook.com/s3orory63r/picture?type=large" alt="Buddhist"></div>
+          <div>
+            <div>Buddhist</div>
+            <div class="text-xs text-[--muted]">Facebook profile/page</div>
+          </div>
         </a>
 
-        <a href="https://linktr.ee" target="_blank" rel="noopener" class="neon-btn w-full inline-block py-4 px-5 rounded-2xl text-center text-lg font-semibold text-white transition-colors">
-          Latest Project
+        <a href="https://www.facebook.com/profile.php?id=100063471703818" target="_blank" rel="noopener" class="neon-btn w-full inline-block py-3 px-4 rounded-2xl text-left text-lg font-semibold text-white transition-colors btn-flex">
+          <div class="btn-avatar" aria-hidden="true"><img src="https://graph.facebook.com/100063471703818/picture?type=large" alt="Wat Ang Prey School"></div>
+          <div>
+            <div>Wat Ang Prey School</div>
+            <div class="text-xs text-[--muted]">Facebook page</div>
+          </div>
         </a>
 
-        <!-- My GitHub Portfolio: toggles inline panel -->
-        <button id="portfolioToggle" type="button" aria-expanded="false" class="neon-btn w-full inline-block py-4 px-5 rounded-2xl text-center text-lg font-semibold text-white transition-colors">
-          My GitHub Portfolio
-        </button>
+        <a href="https://www.facebook.com/venerable.semsophea" target="_blank" rel="noopener" class="neon-btn w-full inline-block py-3 px-4 rounded-2xl text-left text-lg font-semibold text-white transition-colors btn-flex">
+          <div class="btn-avatar" aria-hidden="true"><img src="https://graph.facebook.com/venerable.semsophea/picture?type=large" alt="Sem Sophea"></div>
+          <div>
+            <div>Venerable Sem Sophea</div>
+            <div class="text-xs text-[--muted]">Facebook profile</div>
+          </div>
+        </a>
 
-        <a href="https://youtube.com" target="_blank" rel="noopener" class="neon-btn w-full inline-block py-4 px-5 rounded-2xl text-center text-lg font-semibold text-white transition-colors">
-          Watch on YouTube
+        <a href="https://www.facebook.com/profile.php?id=100068200268908" target="_blank" rel="noopener" class="neon-btn w-full inline-block py-3 px-4 rounded-2xl text-left text-lg font-semibold text-white transition-colors btn-flex">
+          <div class="btn-avatar" aria-hidden="true"><img src="https://graph.facebook.com/100068200268908/picture?type=large" alt="School Administration"></div>
+          <div>
+            <div>School Administration</div>
+            <div class="text-xs text-[--muted]">Facebook profile</div>
+          </div>
+        </a>
+
+        <a href="https://www.facebook.com/profile.php?id=100068768800577" target="_blank" rel="noopener" class="neon-btn w-full inline-block py-3 px-4 rounded-2xl text-left text-lg font-semibold text-white transition-colors btn-flex">
+          <div class="btn-avatar" aria-hidden="true"><img src="https://graph.facebook.com/100068768800577/picture?type=large" alt="School Community"></div>
+          <div>
+            <div>School Community</div>
+            <div class="text-xs text-[--muted]">Facebook profile</div>
+          </div>
+        </a>
+
+        <a href="https://youtube.com/@semsophea1293" target="_blank" rel="noopener" class="neon-btn w-full inline-block py-3 px-4 rounded-2xl text-left text-lg font-semibold text-white transition-colors btn-flex">
+          <div class="btn-avatar" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6"><path fill="currentColor" d="M23.5 6.2s-.2-1.6-.8-2.3c-.7-.9-1.5-.9-1.9-1-2.6-.2-6.5-.2-6.5-.2h-.1s-3.9 0-6.5.2c-.4.1-1.2.1-1.9 1C.7 4.6.5 6.2.5 6.2S.2 8 .2 9.8v1.4c0 1.8.3 3.6.3 3.6s.2 1.6.8 2.3c.7.9 1.7.9 2.1 1 1.5.1 6.2.2 6.2.2s3.9 0 6.5-.2c.4-.1 1.2-.1 1.9-1 .6-.7.8-2.3.8-2.3s.3-1.8.3-3.6V9.8c0-1.8-.3-3.6-.3-3.6z"></path><path fill="#fff" d="M9.6 15.2l5.2-3.2-5.2-3.2z"/></svg></div>
+          <div>
+            <div>Sem Sophea YouTube Channel</div>
+            <div class="text-xs text-[--muted]">Videos & dharma talks</div>
+          </div>
+        </a>
+
+        <a href="tel:0925050000" class="neon-btn w-full inline-block py-3 px-4 rounded-2xl text-left text-lg font-semibold text-white transition-colors btn-flex">
+          <div class="btn-avatar" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92V21a1 1 0 0 1-1.11 1 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2 3.11 1 1 0 0 1 3 2h4.09a1 1 0 0 1 1 .75c.12.67.35 1.32.68 1.94a1 1 0 0 1-.24 1.08L7.91 8.91a14 14 0 0 0 6 6l1.13-1.13a1 1 0 0 1 1.08-.24c.62.33 1.27.56 1.94.68a1 1 0 0 1 .75 1V21z" /></svg></div>
+          <div>
+            <div>Call: 092 50 50000</div>
+            <div class="text-xs text-[--muted]">Primary phone</div>
+          </div>
+        </a>
+
+        <a href="tel:0964505000" class="neon-btn w-full inline-block py-3 px-4 rounded-2xl text-left text-lg font-semibold text-white transition-colors btn-flex">
+          <div class="btn-avatar" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92V21a1 1 0 0 1-1.11 1 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2 3.11 1 1 0 0 1 3 2h4.09a1 1 0 0 1 1 .75c.12.67.35 1.32.68 1.94a1 1 0 0 1-.24 1.08L7.91 8.91a14 14 0 0 0 6 6l1.13-1.13a1 1 0 0 1 1.08-.24c.62.33 1.27.56 1.94.68a1 1 0 0 1 .75 1V21z" /></svg></div>
+          <div>
+            <div>Call: 096 450 5000</div>
+            <div class="text-xs text-[--muted]">Secondary phone</div>
+          </div>
         </a>
       </nav>
 
@@ -146,7 +205,6 @@
         </div>
 
         <ul class="flex flex-col gap-3">
-          <!-- Replace these with your actual repository links -->
           <li>
             <a href="https://github.com/yourusername/project-1" target="_blank" rel="noopener" class="flex items-center justify-between neon-card p-3 rounded-lg">
               <div>
@@ -179,7 +237,7 @@
         </ul>
       </div>
 
-      <p class="mt-6 text-xs text-[--muted]">Built with a dark neon style — replace links and avatar to personalize.</p>
+      <p class="mt-6 text-xs text-[--muted]">Built with a dark neon style — links updated and Facebook avatars shown where available.</p>
     </section>
   </main>
 
@@ -193,13 +251,13 @@
       panel.classList.remove('hidden');
       panel.classList.add('panel-enter','panel-enter-active');
       panel.setAttribute('aria-hidden','false');
-      toggle.setAttribute('aria-expanded','true');
+      if(toggle) toggle.setAttribute('aria-expanded','true');
     }
     function closePanelFunc(){
       panel.classList.remove('panel-enter','panel-enter-active');
       panel.classList.add('panel-exit','panel-exit-active');
       panel.setAttribute('aria-hidden','true');
-      toggle.setAttribute('aria-expanded','false');
+      if(toggle) toggle.setAttribute('aria-expanded','false');
       // after animation, hide
       setTimeout(()=> {
         panel.classList.remove('panel-exit','panel-exit-active');
@@ -208,15 +266,19 @@
     }
 
     let panelOpen = false;
-    toggle.addEventListener('click', () => {
-      panelOpen = !panelOpen;
-      if(panelOpen) openPanel();
-      else closePanelFunc();
-    });
-    closeBtn.addEventListener('click', () => {
-      panelOpen = false;
-      closePanelFunc();
-    });
+    if(toggle){
+      toggle.addEventListener('click', () => {
+        panelOpen = !panelOpen;
+        if(panelOpen) openPanel();
+        else closePanelFunc();
+      });
+    }
+    if(closeBtn){
+      closeBtn.addEventListener('click', () => {
+        panelOpen = false;
+        closePanelFunc();
+      });
+    }
 
     // Close panel when pressing Escape
     document.addEventListener('keydown', (e) => {
